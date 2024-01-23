@@ -49,6 +49,7 @@ jobs:
         uses: koenhagen/measure-energy-action@v0.27
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          count: 10
           run: |
             wait-for-it --service 127.0.0.1:7860 -t 600
             python -m pytest -vv --junitxml=test/results.xml --cov . --cov-report=xml --verify-base-url test
